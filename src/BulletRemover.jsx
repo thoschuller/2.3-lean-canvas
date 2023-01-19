@@ -18,7 +18,8 @@ class BulletRemover extends React.Component {
     if (typeof bullet["elementId"] !== "undefined") {
       return <dialog id="removalDialog" className={bullet["elementId"]}>
         <h3>Bullet verwijderen</h3>
-        <p>Weet je zeker dat je de bullet "{canvas.state.data[bullet["elementId"]][bullet["naamOfBullId"]]}" wilt verwijderen?</p>
+        <p>Weet je zeker dat je de bullet "{canvas.state.data[bullet["elementId"]][bullet["naamOfBullId"]]}" wilt
+          verwijderen?</p>
         <button type="button" className="closebutton" onClick={this.closeDialog.bind(this)}>
           <h2><i className="fa-solid fa-close"></i></h2></button>
         <div id="verwijderknoppen">
@@ -32,7 +33,9 @@ class BulletRemover extends React.Component {
   }
 
 
-  closeDialog() { document.getElementById("removalDialog").close() }
+  closeDialog() {
+    document.getElementById("removalDialog").close()
+  }
 
 
   /**
@@ -46,8 +49,8 @@ class BulletRemover extends React.Component {
     let deel1 = oldElementData.slice(0, bulletIdInt); //cut array in a part before and after the bulletpoint, and join them together again
     let deel2 = oldElementData.slice(bulletIdInt + 1, oldElementData.length);
     let newElementData = deel1.concat(deel2);
-    let newData = { ...canvas.state.data, [id]: newElementData };
-    canvas.setState({ data: newData });
+    let newData = {...canvas.state.data, [id]: newElementData};
+    canvas.setState({data: newData});
     this.closeDialog();
   }
 }

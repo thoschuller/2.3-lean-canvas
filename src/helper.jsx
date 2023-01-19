@@ -4,7 +4,7 @@
  * @param {object} object the object to be converted to *.json file and downloaded
  */
 export function downloadAsJson(fileName, object) {
-  const data = new Blob([JSON.stringify(object)], { type: "text/json" });
+  const data = new Blob([JSON.stringify(object)], {type: "text/json"});
   const jsonURL = window.URL.createObjectURL(data);
   const link = document.createElement("a");
   document.body.appendChild(link);
@@ -21,6 +21,6 @@ export function downloadAsJson(fileName, object) {
  */
 export function nl2br(tekst) {
   return tekst.split('\n').map((item, key) => {
-    return <span key={key}>{item}<br /></span>
+    return <span key={key}>{item}<br/></span>
   });
 }

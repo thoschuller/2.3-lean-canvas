@@ -1,0 +1,112 @@
+#presentationDialog {
+  padding: 0;
+}
+
+#presentationDialog .elementHeader {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+dialog:modal {
+  position: relative;
+  color: #dafbef;
+  border-style: none;
+  border-radius: 0.5rem;
+}
+
+#presentationDialog:modal {
+  font-size: x-large;
+  bottom: 0;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  width: 100%;
+  height: 80%;
+}
+
+#presentationDialog .bullet button {
+  display: none;
+}
+
+.dialogHeader {
+  position: relative;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.25)
+}
+
+.dialogHeader > * {
+  display: inline-block;
+  margin: 1.5rem 0 2rem 2rem;
+}
+
+#presentationDialog > .bulletContainer {
+  width: auto;
+  margin: 1.5rem;
+}
+
+#removalDialog:modal {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  height: fit-content;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(0.125rem);
+}
+
+.bulletDialog h3 {
+  margin-top: 0.25rem;
+}
+
+.bulletDialog:modal {
+  width: 30vw;
+  height: 32.5vh;
+}
+
+.closebutton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: fit-content;
+  height: 2rem;
+  margin: 1rem;
+}
+
+.closebutton h2 i {
+  right: 0;
+  opacity: 100%;
+  color: #dafbef;
+}
+
+.closebutton h2 {
+  margin: 0;
+  padding: 0;
+}
+
+form textarea {
+  display: block;
+}
+
+
+#newBulletForm {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 3rem);
+}
+
+#newBulletText {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 1rem;
+}
+
+#verwijderknoppen > button {
+  margin-right: 0.5rem;
+  padding: 0.5rem;
+}
+
+#verwijderknop {
+  background-color: #c42121;
+}

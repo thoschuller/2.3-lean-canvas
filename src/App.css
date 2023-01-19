@@ -1,323 +1,90 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
- html {
-     height: 100%;
-}
- body {
-     color: #dafbef;
-     font-family: 'Lato', sans-serif;
-     margin: 0;
-     padding: 0;
-     background-image: linear-gradient(to right, #6f0e17, #330600);
-     height: 100%;
-     word-break: break-word;
-}
- #root {
-     height: 100%;
-}
- #root > div {
-     height: 100%;
-}
- #canvas {
-     padding: 1.5vh 2.5vh 2.5vh 2.5vh;
-     display: grid;
-     grid-template-columns: repeat(10, minmax(0, 1fr));
-     height: 100%;
-     max-height: 100%;
-     min-height: 0;
-     overflow: hidden;
-     gap: 0.5rem;
-     grid-template-rows: auto repeat(3, minmax(0, 1fr));
-}
- header{
-     grid-area: 1/1/2/11;
-     display: contents;
-}
- main{
-     grid-area: 2/1/5/11;
-     display: contents;
-}
- .canvasHeader {
-     margin: 0;
+@import 'Elements.css';
+@import 'Dialogs.css';
+@import "Bullets.css";
+
+html {
+  height: 100%;
 }
 
-*::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	border-radius: 10px;
-	background-color: inherit;
+body {
+  font-family: 'Lato', sans-serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  word-break: break-word;
+  color: #dafbef;
+  background-image: linear-gradient(to right, #6f0e17, #330600);
 }
 
-*::-webkit-scrollbar
-{
-	width: 12px;
-	background-color: inherit;
+#root {
+  height: 100%;
 }
 
-*::-webkit-scrollbar-thumb
-{
-	border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	background-color: rgba(0,0,0,0.4);
+#root > div {
+  height: 100%;
 }
 
- button {
-     color: #dafbef;
-     background-color: rgba(0, 0, 0, 0.25);
-     border: none;
-     border-radius: 0.25rem;
-}
-button:hover{
-     background-color: rgba(0, 0, 0, 0.4);
+#canvas {
+  display: grid;
+  overflow: hidden;
+  height: 100%;
+  min-height: 0;
+  max-height: 100%;
+  padding: 1.5vh 2.5vh 2.5vh 2.5vh;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: 0.5rem;
+  grid-template-rows: auto repeat(3, minmax(0, 1fr));
 }
 
- .toevoegButton {
-     position: absolute;
-     right: 1rem;
-     bottom: 0.5rem;
+header {
+  display: contents;
+  grid-area: 1/1/2/11;
 }
- .toevoegButton, .vergrootButton, .verwijderButton{
-     display: none;
+
+main {
+  display: contents;
+  grid-area: 2/1/5/11;
 }
- .canvasElement:hover .toevoegButton, .canvasElement:hover .vergrootButton {
-     display: block;
+
+.canvasHeader {
+  margin: 0;
 }
- #canvasHeaderButtons {
-     margin: auto 0 auto auto;
-     grid-area: 1/7/2/11;
+
+
+button {
+  color: #dafbef;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: rgba(0, 0, 0, 0.25);
 }
- button.canvasHeader {
-     height: 2rem;
-     margin-left: 0.5rem;
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.4);
 }
- #canvasTitle {
-     display: inline-block;
-     grid-column: 1/7;
-     text-align: left;
+
+#canvasHeaderButtons {
+  margin: auto 0 auto auto;
+  grid-area: 1/7/2/11;
 }
- .canvasElement {
-     text-align: left;
-     border-radius: 0.5rem;
-     max-height: 100%;
-     height: 100%;
-     overflow: hidden;
-     min-height: 0;
-     position: relative;
-     display: block;
+
+button.canvasHeader {
+  height: 2rem;
+  margin-left: 0.5rem;
 }
- .canvasContent {
-     padding: 0.75rem 0.75rem 2rem 0.75rem;
-     height: 100%;
-     display: flex;
-     flex-direction: column;
-     overflow: hidden;
-     position: relative;
+
+#canvasTitle {
+  display: inline-block;
+  text-align: left;
+  grid-column: 1/7;
 }
- .elementHeader{
-     margin-bottom: 1rem;
+
+
+i {
+  opacity: 50%;
+  color: lightgray;
 }
- #presentationDialog {
-     padding: 0;
-}
- #presentationDialog .elementHeader{
-     background-color: rgba(0,0,0,0.1);
-}
- .elementIcon {
-     margin-top: 0;
-     margin-bottom: 0.250rem;
-}
- .elementnaam {
-     margin-top: 0;
-     margin-bottom: 0;
-}
- .beschrijving {
-     margin: 0;
-     font-style: italic;
-     color: lightgray;
-}
- .bulletContainer {
-     height: 100%;
-     position: relative;
-     width: 100%;
-     display: block;
-}
- .bullets {
-     padding: 0;
-     position: absolute;
-     overflow: auto;
-     height: 100%;
-     width: 100%;
-     margin: 0;
-     list-style: none;
-}
- .bullet {
-     width: auto;
-     padding: 0.5em;
-     margin-right: 0.5rem;
-     margin-bottom: 0.375rem;
-     border-bottom: solid white thin;
-     border-radius: 0.5rem;
-     background-color: rgba(0, 0, 0, 0.1);
-     display: flex;
-     justify-content: space-between;
-}
- .bullet:hover{
-     background-color: rgba(0, 0, 0, 0.3);
-}
- .bullet:hover button{
-     display: inline-block;
-}
- .bullet .text{
-     margin-right: 0.25rem;
-}
- .verwijderButton {
-     width: fit-content;
-     height: fit-content;
-     margin: auto 0;
-}
- .verwijderButton i {
-     opacity: 100%;
-     color: #dafbef;
-}
- i {
-     color: lightgray;
-     opacity: 50%;
-}
- dialog:modal {
-     color: #dafbef;
-     border-style: none;
-     border-radius: 0.5rem;
-     position: relative;
-}
- #presentationDialog:modal {
-     width: 100%;
-     height: 80%;
-     bottom: 0;
-     font-size: x-large;
-     overflow: hidden;
-     display: flex;
-     flex-direction: column;
-}
- #presentationDialog .bullet button {
-     display: none;
-}
- .dialogHeader {
-     width: 100%;
-     position: relative;
-     background-color: rgba(0,0,0,0.25) 
-}
- .dialogHeader > * {
-     display: inline-block;
-     margin: 1.5rem 0 2rem 2rem;
-}
- #presentationDialog > .bulletContainer{
-     margin: 1.5rem;
-     width: auto;
-}
- #removalDialog:modal{
-     width: 30vw;
-     height: fit-content;
-     display: flex;
-     flex-direction: column;
-}
- #verwijderknoppen {
-    /* position: absolute;
-     bottom: 0;
-     */
-}
- #verwijderknoppen > button{
-     padding: 0.5rem;
-     margin-right: 0.5rem;
-}
- #verwijderknop{
-     background-color: #c42121;
-}
- .closebutton, .vergrootButton {
-     width: fit-content;
-     position: absolute;
-     right: 0;
-     margin: 1rem;
-     top: 0;
-     height: 2rem;
-}
- .closebutton h2 i, .vergrootButton h2 i {
-     opacity: 100%;
-     color: #dafbef;
-     right: 0;
-}
- .closebutton h2, .vergrootButton h2 {
-     margin: 0;
-     padding: 0;
-}
- form textarea {
-     display: block;
-}
- dialog::backdrop {
-     background: rgba(0, 0, 0, 0.5);
-     backdrop-filter: blur(0.125rem);
-}
- .bulletDialog h3{
-     margin-top: 0.25rem;
-}
- .bulletDialog:modal{
-     height: 32.5vh;
-     width: 30vw;
-}
- #newBulletForm{
-     height: calc(100% - 3rem);
-     position: relative;
-     display: flex;
-     flex-direction: column;
-}
- #newBulletText {
-     height: 100%;
-     width: 100%;
-     margin-bottom: 1rem;
-}
- .probleem {
-     background-color: #dd052e;
-     grid-row: 2/4;
-     grid-column: 1 / 3;
-}
- .oplossing {
-     background-color: #ff9a02;
-     grid-row: 2;
-     grid-column: 3/5;
-}
- .belangrijksteMeetwaarden {
-     background-color: #fb6b25;
-     grid-row: 3;
-     grid-column: 3/5;
-}
- .uvp {
-     background-color: #00aa44;
-     grid-row: 2/4;
-     grid-column: 5/7;
-}
- .oneerlijkVoordeel {
-     background-color: #7fcf2e;
-     grid-row: 2;
-     grid-column: 7/9;
-}
- .kanalen {
-     background-color: #00b9a9;
-     grid-row: 3;
-     grid-column: 7/9;
-}
- .klantsegment {
-     background-color: #029fc8;
-     grid-row: 2/4;
-     grid-column: 9/11;
-}
- .kostenstructuur {
-     background-color: #5d51cf;
-     grid-row: 4;
-     grid-column: 1/6;
-}
- .omzetstromen {
-     background-color: #670fb9;
-     grid-row: 4;
-     grid-column: 6/11;
-}
- * {
-     box-sizing: border-box;
-}
+
+
+
+

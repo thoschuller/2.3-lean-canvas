@@ -1,3 +1,4 @@
+//constants in external file for readability
 export const elementen = {
     probleem: {naam: "Probleem", beschrijving: "Top 3 problemen", icon: "lock"},
     oplossing: {naam: "Oplossing", beschrijving: "Top 3 oplossingen", icon: "rocket"},

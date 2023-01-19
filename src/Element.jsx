@@ -2,6 +2,16 @@ import React from 'react';
 import BulletContainer from './BulletContainer';
 import { modifyBullet } from "./bulletHelper";
 
+/**
+ * This class provides the component for displaying all canvas elements with their names, descriptions and bulletpoints
+ *
+ * @author Thomas Schuller
+ * @author Rosan van der Linden
+ * @author Jaimy van Hattem
+ * @author Floris Buitendijk
+ *
+ * @author project group 2 of Medical Informatics course 2.3 (2022-2023)
+ */
 class Element extends React.Component {
 
   render() {
@@ -25,6 +35,11 @@ class Element extends React.Component {
     </div>;
   }
 
+  /**
+   * set necessary state variables for big-screen displaying of a single element and display the presentation component
+   * @param id
+   * @param canvas
+   */
   vergrootElement(id, canvas) {
     let newElementPresenter = { props: this.props };
     canvas.setState({

@@ -1,4 +1,4 @@
-run = "./repl.deploy --standalone vite"
+run = "vite"
 entrypoint = "src/App.jsx"
 
 hidden = [".config", "tsconfig.json", "tsconfig.node.json", "vite.config.js", ".gitignore"]

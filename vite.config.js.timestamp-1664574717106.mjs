@@ -1,4 +1,6 @@
 // vite.config.js
+// noinspection ES6ConvertVarToLetConst,JSUnusedGlobalSymbols
+
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 var vite_config_default = defineConfig({

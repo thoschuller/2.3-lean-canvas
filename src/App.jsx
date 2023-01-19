@@ -4,14 +4,14 @@ import './App.css'
 import Canvas from './Canvas'
 
 class App extends React.Component {
-    render() {
+  render() {
 
-        return (
-            <div>
-                <Canvas/>
-            </div>
-        )
-    }
+    return (
+      <div>
+        <Canvas />
+      </div>
+    )
+  }
 }
 
 export default App;

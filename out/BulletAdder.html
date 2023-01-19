@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Global</title>
+    <title>JSDoc: Class: BulletAdder</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Global</h1>
+    <h1 class="page-title">Class: BulletAdder</h1>
 
     
 
@@ -28,7 +28,9 @@
 
 <header>
     
-        <h2></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>BulletAdder<span class="signature">()</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description">This component provides a dialog for adding a bulletpoint to a given canvas element</div>
         
     
 </header>
@@ -38,7 +40,28 @@
     
         
 
-        
+    
+    <h2>Constructor</h2>
+    
+
+    
+    <h4 class="name" id="BulletAdder"><span class="type-signature"></span>new BulletAdder<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <dl class="details">
@@ -60,13 +83,33 @@
     
 
     
-
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li>Thomas Schuller</li>
+        
+            <li>Rosan van der Linden</li>
+        
+            <li>Jaimy van Hattem</li>
+        
+            <li>Floris Buitendijk</li>
+        
+            <li>Medical Informatics course 2.3  project group 2</li>
+        </ul>
+    </dd>
     
 
     
 
     
 
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="BulletAdder.jsx.html">BulletAdder.jsx</a>, <a href="BulletAdder.jsx.html#line13">line 13</a>
+    </li></ul></dd>
     
 
     
@@ -77,7 +120,24 @@
 </dl>
 
 
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     </div>
 
@@ -104,7 +164,7 @@
     
 
     
-    <h4 class="name" id="downloadAsJson"><span class="type-signature"></span>downloadAsJson<span class="signature">(fileName, object)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="addBullet"><span class="type-signature"></span>addBullet<span class="signature">(event)</span><span class="type-signature"></span></h4>
     
 
     
@@ -112,7 +172,7 @@
 
 
 <div class="description">
-    Downloads given object as *.json file
+    Create and add a bullet from the text in the textarea
 </div>
 
 
@@ -148,15 +208,10 @@
 
         <tr>
             
-                <td class="name"><code>fileName</code></td>
+                <td class="name"><code>event</code></td>
             
 
             <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
             
             </td>
 
@@ -164,30 +219,7 @@
 
             
 
-            <td class="description last">the name to be assigned to the downloaded file</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>object</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">the object to be converted to *.json file and downloaded</td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -228,7 +260,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="helper.jsx.html">helper.jsx</a>, <a href="helper.jsx.html#line6">line 6</a>
+        <a href="BulletAdder.jsx.html">BulletAdder.jsx</a>, <a href="BulletAdder.jsx.html#line57">line 57</a>
     </li></ul></dd>
     
 
@@ -264,7 +296,7 @@
     
 
     
-    <h4 class="name" id="modifyBullet"><span class="type-signature"></span>modifyBullet<span class="signature">(elementId, naamOfBullId, canvas, add)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="closeBullet"><span class="type-signature"></span>closeBullet<span class="signature">(event)</span><span class="type-signature"></span></h4>
     
 
     
@@ -272,7 +304,7 @@
 
 
 <div class="description">
-    Eventhandler for the create bullet and remove bullet buttons, opens respective dialogs
+    Handles proper closure of the dialog, erasing the textarea
 </div>
 
 
@@ -308,15 +340,10 @@
 
         <tr>
             
-                <td class="name"><code>elementId</code></td>
+                <td class="name"><code>event</code></td>
             
 
             <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
             
             </td>
 
@@ -324,76 +351,7 @@
 
             
 
-            <td class="description last">id of the canvas element the bullet belongs to</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>naamOfBullId</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">the name of the canvas element in case of bullet creation, or the id of the bullet in case of bullet removal</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>canvas</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">the main canvas object containing the state with all data</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>add</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">true when method is used for creating a bullet, false when used for removing a bullet</td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -434,7 +392,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bulletHelper.jsx.html">bulletHelper.jsx</a>, <a href="bulletHelper.jsx.html#line8">line 8</a>
+        <a href="BulletAdder.jsx.html">BulletAdder.jsx</a>, <a href="BulletAdder.jsx.html#line46">line 46</a>
     </li></ul></dd>
     
 
@@ -470,7 +428,7 @@
     
 
     
-    <h4 class="name" id="nl2br"><span class="type-signature"></span>nl2br<span class="signature">(tekst)</span><span class="type-signature"> &rarr; {*}</span></h4>
+    <h4 class="name" id="onEnter"><span class="type-signature"></span>onEnter<span class="signature">(event)</span><span class="type-signature"></span></h4>
     
 
     
@@ -478,7 +436,7 @@
 
 
 <div class="description">
-    Converts newline ("\n") tokens in text to HTML break-elements
+    Creates a bullet from the text when the enter key is pressed
 </div>
 
 
@@ -514,15 +472,10 @@
 
         <tr>
             
-                <td class="name"><code>tekst</code></td>
+                <td class="name"><code>event</code></td>
             
 
             <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
             
             </td>
 
@@ -530,7 +483,7 @@
 
             
 
-            <td class="description last">the text containing newline tokens</td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -571,7 +524,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="helper.jsx.html">helper.jsx</a>, <a href="helper.jsx.html#line22">line 22</a>
+        <a href="BulletAdder.jsx.html">BulletAdder.jsx</a>, <a href="BulletAdder.jsx.html#line35">line 35</a>
     </li></ul></dd>
     
 
@@ -596,28 +549,6 @@
 
 
 
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    an HTML span-element containing the text with break elements
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">*</span>
-
-
-    </dd>
-</dl>
-
-    
 
 
 

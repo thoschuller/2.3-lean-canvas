@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: ElementPresentation.jsx</title>
+    <title>JSDoc: Source: Element.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: ElementPresentation.jsx</h1>
+    <h1 class="page-title">Source: Element.jsx</h1>
 
     
 
@@ -27,50 +27,64 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React from 'react';
-import BulletContainer from "./BulletContainer";
+import BulletContainer from './BulletContainer';
+import { modifyBullet } from "./bulletHelper";
 
 /**
- * This component provides a dialog for full-screen presentation of a single canvas element
+ * This class provides the component for displaying all canvas elements with their names, descriptions and bulletpoints
  *
  * @author Thomas Schuller
  * @author Rosan van der Linden
  * @author Jaimy van Hattem
  * @author Floris Buitendijk
  *
- * @author Medical Informatics course 2.3  project group 2
+ * @author project group 2 of Medical Informatics course 2.3 (2022-2023)
  */
-class ElementPresentation extends React.Component {
+class Element extends React.Component {
 
   render() {
+    const { naam, beschrijving, icon } = this.props.element;
+    const id = this.props.id;
     const canvas = this.props.canvas;
-    const elementen = this.props.elementen;
-    const props = canvas.state.elementPresenter.props
-    if (typeof props !== 'undefined') { //alleen doorgaan als er een element is gegeven om te presenteren
-    const id = props.id;
-      const { naam, beschrijving, icon } = elementen[id];
-      return &lt;dialog id="presentationDialog" className={id}>
-        &lt;div className="dialogHeader">
+    
+    return &lt;div className={"canvasElement " + id}>
+      &lt;div className="canvasContent">
+        &lt;div className="elementHeader">
           &lt;h1 className="elementIcon">&lt;i className={"fa-solid fa-" + icon}>&lt;/i>&lt;/h1>
-          &lt;div className='titelblok'>
           &lt;h3 className="elementnaam">{naam}&lt;/h3>
           &lt;p className="beschrijving">{beschrijving}&lt;/p>
-            &lt;/div>
-          &lt;button type="button" className="closebutton" onClick={this.closePresentation.bind(this)}>&lt;h2>&lt;i
-            className="fa-solid fa-minimize">&lt;/i>&lt;/h2>&lt;/button>
+          &lt;button className='vergrootButton' type="button" onClick={this.vergrootElement.bind(this, id, canvas)}>
+            &lt;h2>&lt;i className="fa-solid fa-maximize">&lt;/i>&lt;/h2>
+          &lt;/button>
         &lt;/div>
-        &lt;BulletContainer props={canvas.state.elementPresenter.props} />
-      &lt;/dialog>
-    } else {
-      return &lt;dialog id="presentationDialog">&lt;/dialog> //lege dialog om het mogelijk te maken het id te vinden in de DOM
-    }
+        &lt;BulletContainer props = {this.props}/>
+      &lt;/div>
+      &lt;button className='toevoegButton' type="button" onClick={modifyBullet.bind(this, id, naam, canvas, true)}>Voeg bullet toe &lt;i className="fa-solid fa-plus">&lt;/i>&lt;/button>
+    &lt;/div>;
   }
 
-  closePresentation() {
-    document.getElementById("presentationDialog").close()
+  /**
+   * set necessary state variables for big-screen displaying of a single element and display the presentation component
+   * @param id
+   * @param canvas
+   */
+  vergrootElement(id, canvas) {
+    let newElementPresenter = { props: this.props };
+    canvas.setState({
+      elementPresenter: newElementPresenter
+    },
+      () => {
+        const presentationDialog = document.getElementById("presentationDialog");
+        if (typeof presentationDialog !== "undefined") {
+          presentationDialog.showModal()
+        }
+      });
   }
+
+  
 }
 
-export default ElementPresentation;</code></pre>
+export default Element;</code></pre>
         </article>
     </section>
 

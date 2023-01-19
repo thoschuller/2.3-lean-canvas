@@ -18,7 +18,7 @@ class BulletAdder extends React.Component {
         </dialog>
     }
 
-    // noinspection JSUnusedLocalSymbols
+    
     closeBullet(event) {
         document.getElementById("newBulletText").value = "";
         const bulletDialog = document.getElementById("bulletDialog");
@@ -27,7 +27,7 @@ class BulletAdder extends React.Component {
         }
     }
 
-    // noinspection JSUnusedLocalSymbols
+    
     focusOnTextbox(event) {
         document.getElementById("newBulletText").focus();
     }

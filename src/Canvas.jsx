@@ -1,5 +1,3 @@
-// noinspection JSUnusedLocalSymbols
-
 import React from 'react';
 import Element from "./Element";
 import BulletAdder from "./BulletAdder";
@@ -81,7 +79,6 @@ class Canvas extends React.Component {
         filereader.readAsText(bestand, "UTF-8");
 
         filereader.onload = (e) => {
-            // noinspection JSCheckFunctionSignatures
             const newData = JSON.parse(e.target.result);
             this.setState({
                 data: newData

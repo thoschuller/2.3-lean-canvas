@@ -1,5 +1,4 @@
 // Download 'object' als JSON-bestand met de naam 'fileName'
-// noinspection JSUnusedGlobalSymbols
 
 export function downloadAsJson(fileName, object) {
     const data = new Blob([JSON.stringify(object)], {type: "text/json"});

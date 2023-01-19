@@ -4,18 +4,7 @@ import BulletAdder from "./BulletAdder";
 import BulletRemover from './BulletRemover';
 import ElementPresentation from "./ElementPresentation";
 import { downloadAsJson } from "./helper";
-
-const elementen = {
-  probleem: { naam: "Probleem", beschrijving: "voorbeeld", icon: "lock" },
-  oplossing: { naam: "Oplossing", beschrijving: "voorbeeld", icon: "rocket" },
-  belangrijksteMeetwaarden: { naam: "Belangrijkste Meetwaarden", beschrijving: "voorbeeld", icon: "chart-simple" },
-  uvp: { naam: "Unieke Value Propositie", beschrijving: "voorbeeld", icon: "trophy" },
-  oneerlijkVoordeel: { naam: "Oneerlijk Voordeel", beschrijving: "voorbeeld", icon: "lightbulb" },
-  kanalen: { naam: "Kanalen", beschrijving: "voorbeeld", icon: "users-viewfinder" },
-  klantsegment: { naam: "Klantsegment", beschrijving: "voorbeeld", icon: "users" },
-  kostenstructuur: { naam: "Kostenstructuur", beschrijving: "voorbeeld", icon: "money-bill-wave" },
-  omzetstromen: { naam: "Omzetstromen", beschrijving: "voorbeeld", icon: "hand-holding-dollar" },
-};
+import { elementen } from './constants.jsx'
 
 class Canvas extends React.Component {
   constructor(props) {

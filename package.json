@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "autoprefixer": "^10.4.13",
+    "jsdoc": "^4.0.0",
     "postcss": "^8.4.21"
   },
   "devDependencies": {

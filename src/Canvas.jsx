@@ -6,10 +6,21 @@ import ElementPresentation from "./ElementPresentation";
 import { downloadAsJson } from "./helper";
 import { elementen } from './constants.jsx'
 
+/**
+ * This class provides the main canvas component and stores the state with the necessary information of the bulletpoints
+ *
+ * @author Thomas Schuller
+ * @author Rosan van der Linden
+ * @author Jaimy van Hattem
+ * @author Floris Buitendijk
+ *
+ * @author project group 2 of Medical Informatics course 2.3 (2022-2023)
+ */
 class Canvas extends React.Component {
   constructor(props) {
     super(props);
 
+    //initialize the state and all arrays for storing the bulletpoints
     this.state = {
       data: {
         probleem: [],
@@ -25,7 +36,7 @@ class Canvas extends React.Component {
       elementPresenter: {
         props: undefined
       },
-      bulletModifier: {
+      bulletModifier: { //used for determining which elements the removal/creation dialogs are for
         elementId: undefined,
         naamOfBullId: undefined
       }
@@ -67,6 +78,10 @@ class Canvas extends React.Component {
     canvasUpload.click();
   };
 
+  /**
+   * imports canvas from file upload button
+   * @param event
+   */
   importCanvas = (event) => {
     const bestand = event.target.files[0];
     event.target.value = null;

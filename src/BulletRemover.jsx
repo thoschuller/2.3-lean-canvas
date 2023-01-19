@@ -1,5 +1,15 @@
 import React from 'react';
 
+/**
+ * This class provides a component containing a dialog for confirming removing bulletpoints
+ *
+ * @author Thomas Schuller
+ * @author Rosan van der Linden
+ * @author Jaimy van Hattem
+ * @author Floris Buitendijk
+ *
+ * @author project group 2 of Medical Informatics course 2.3 (2022-2023)
+ */
 class BulletRemover extends React.Component {
 
   render() {
@@ -25,11 +35,15 @@ class BulletRemover extends React.Component {
   closeDialog() { document.getElementById("removalDialog").close() }
 
 
+  /**
+   * Removes the current bulletpoint from the canvas state
+   * @param canvas
+   */
   removeBullet(canvas) {
     let id = canvas.state.bulletModifier["elementId"];
     let bulletIdInt = parseInt(canvas.state.bulletModifier.naamOfBullId);
     let oldElementData = canvas.state.data[id];
-    let deel1 = oldElementData.slice(0, bulletIdInt);
+    let deel1 = oldElementData.slice(0, bulletIdInt); //cut array in a part before and after the bulletpoint, and join them together again
     let deel2 = oldElementData.slice(bulletIdInt + 1, oldElementData.length);
     let newElementData = deel1.concat(deel2);
     let newData = { ...canvas.state.data, [id]: newElementData };

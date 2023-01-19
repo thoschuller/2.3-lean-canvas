@@ -1,6 +1,6 @@
 import React from 'react';
 import BulletContainer from './BulletContainer';
-import { modifyBullet } from "./helper";
+import { modifyBullet } from "./bulletHelper";
 
 class Element extends React.Component {
 

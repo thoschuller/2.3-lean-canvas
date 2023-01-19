@@ -1,14 +1,23 @@
 import React from 'react';
 import BulletContainer from "./BulletContainer";
 
+/**
+ * This component provides a dialog for full-screen presentation of a single canvas element
+ *
+ * @author Thomas Schuller
+ * @author Rosan van der Linden
+ * @author Jaimy van Hattem
+ * @author Floris Buitendijk
+ *
+ * @author Medical Informatics course 2.3  project group 2
+ */
 class ElementPresentation extends React.Component {
-// element={elementen[id]}
 
   render() {
     const canvas = this.props.canvas;
     const elementen = this.props.elementen;
     const props = canvas.state.elementPresenter.props
-    if (typeof props !== 'undefined') {
+    if (typeof props !== 'undefined') { //alleen doorgaan als er een element is gegeven om te presenteren
     const id = props.id;
       const { naam, beschrijving, icon } = elementen[id];
       return <dialog id="presentationDialog" className={id}>
@@ -24,7 +33,7 @@ class ElementPresentation extends React.Component {
         <BulletContainer props={canvas.state.elementPresenter.props} />
       </dialog>
     } else {
-      return <dialog id="presentationDialog"></dialog>
+      return <dialog id="presentationDialog"></dialog> //lege dialog om het mogelijk te maken het id te vinden in de DOM
     }
   }
 

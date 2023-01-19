@@ -1,5 +1,8 @@
-// Download 'object' als JSON-bestand met de naam 'fileName'
-
+/**
+ * Downloads given object as *.json file
+ * @param {string} fileName the name to be assigned to the downloaded file
+ * @param {object} object the object to be converted to *.json file and downloaded
+ */
 export function downloadAsJson(fileName, object) {
   const data = new Blob([JSON.stringify(object)], { type: "text/json" });
   const jsonURL = window.URL.createObjectURL(data);
@@ -11,18 +14,13 @@ export function downloadAsJson(fileName, object) {
   document.body.removeChild(link);
 }
 
-// Zet newlines om in 'br' elementen
+/**
+ * Converts newline ("\n") tokens in text to HTML break-elements
+ * @param {string} tekst the text containing newline tokens
+ * @returns {*} an HTML span-element containing the text with break elements
+ */
 export function nl2br(tekst) {
   return tekst.split('\n').map((item, key) => {
     return <span key={key}>{item}<br /></span>
   });
 }
-
-export function modifyBullet(elementId, naamOfBullId, canvas, add) {
-    const dialog = document.getElementById(add ? "bulletDialog" : "removalDialog");
-    let newBulletModifier = { ...canvas.state.bulletModifier, elementId: elementId, naamOfBullId: naamOfBullId };
-    canvas.setState({ bulletModifier: newBulletModifier }, () => {
-      dialog.showModal();
-      if(add) document.getElementById("newBulletText").focus();
-    });
-  }
